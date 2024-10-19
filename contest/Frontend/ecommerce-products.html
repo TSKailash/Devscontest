@@ -1,0 +1,1047 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <style>
+        @keyframes appear {
+                from{
+                    opacity: 0;
+                    scale: 0.5;
+                }
+                to{
+                    opacity: 1;
+                    scale: 1;
+                }
+        }
+        @media (min-width: 800px){
+            body {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Poppins", sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .navbar {
+            display: flex;
+            position: fixed;
+            top: 0px;
+            align-items: center;
+            width: 100%;
+            height: 85px;
+            background: linear-gradient(125deg, #1900ff, #90c3f1);
+            box-shadow: 0 0 200px #110d0d;
+            z-index: 100;
+        }
+
+        .navbar nav {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            width: 100%;
+        }
+
+        .navbar nav input {
+            max-height: 40px;
+            padding: 30px 30px;
+            display: flex;
+            border-radius: 30px;
+            justify-content: center;
+            align-items: center;
+            margin: 30px 20px 40px 50px;
+            padding: 10px;
+            outline: none;
+            border: none;
+            width: 40%;
+        }
+
+        .menu{
+                display: none;
+            }
+            .quernav{
+                position: fixed;
+                top: 0;
+                right: 0;
+                align-items: flex-start;        
+                height: 100vh;
+                width: 30%;
+                float: right;
+                display: none;
+                flex-direction: column;
+                gap: 30px;
+                background-color: gray;
+            }
+        .navbar nav ul {
+            list-style-type: none;
+            display: flex;
+            gap: 10px;
+        }
+
+        .navbar nav ul li {
+            font-size: 22px;
+            font-weight: 400;
+            transition: color 0.5s ease, 0.5s;
+            cursor: pointer;
+        }
+
+        .navbar nav ul li a {
+            text-decoration: none;
+            color: #110d0d;
+            padding: 10px;
+        }
+
+        .navbar nav ul li:hover {
+            transform: translateY(-3px) scale(1.1);
+            color: rgb(239, 236, 236);
+        }
+
+        .container #toptxt {
+            color: black;
+            font-size: 64px;
+            font-weight: 600;
+            font-family: "Poppins", sans-serif;
+            padding-top: 200px;
+            text-align: center;
+        }
+
+        .cart {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 50px;
+            margin-top: 100px;
+            background-color: white;
+            margin-left: 30px;
+            justify-content: center;
+        }
+
+        .images p, .images div, .images h3, .images button{
+            animation: appear linear;
+            animation-timeline: view();
+            animation-range: entry 0 cover 30%;
+        }
+
+        .cart img {
+            padding: 10px;
+            width: 300px;
+            height: 300px;
+            border: 2px solid rgb(241, 234, 234);
+        }
+
+        .images {
+            padding: 25px;
+            text-align: center;
+            box-shadow: 0 0 10px rgb(251, 250, 250);
+            height: auto;
+            background: rgb(255, 255, 255);
+            border: 10px solid rgb(255, 253, 253);
+            box-shadow: 0 0 3px rgb(0, 0, 0);
+            border-radius: 2%;
+            width: 350px;
+        }
+
+        .Products {
+            transition: 0.4s;
+            border-radius: 5%;
+            object-fit: fill;
+            object-position: cover;
+        }
+
+        .Products:hover {
+            transform: scale(1.1);
+        }
+
+        .btn {
+            background-color: #1900ff;
+            color: white;
+            border: 0;
+            border-radius: 10px;
+            padding: 15px;
+            cursor: pointer;
+            font-size: large;
+            font-family: "Poppins", sans-serif;
+            transition: background-color 0.6s ease, transform 0.6s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.2);
+            transform: scaleX(0);
+            transform-origin: bottom right;
+            transition: transform 0.6s ease;
+            z-index: 0;
+        }
+
+        .btn:hover::before {
+            transform: scaleX(1);
+            transform-origin: bottom left;
+        }
+
+        .btn span {
+            position: relative;
+            z-index: 1;
+        }
+
+        .btn:hover {
+            background-color: #201d1d;
+            color: aliceblue;
+            transform: translateY(-5px);
+        }
+
+        .added {
+            background-color: #db1e2b;
+            color: white;
+            border: 0;
+            border-radius: 10px;
+            padding: 15px;
+            cursor: pointer;
+            font-size: large;
+            font-family: "Poppins", sans-serif;
+            transition: background-color 0.6s ease, transform 0.6s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .added::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.2);
+            transform: scaleX(0);
+            transform-origin: bottom right;
+            transition: transform 0.6s ease;
+            z-index: 0;
+        }
+
+        .added:hover::before {
+            transform: scaleX(1);
+            transform-origin: bottom left;
+        }
+
+        .added:hover {
+            background-color: #da3b06;
+            color: aliceblue;
+            transform: translateY(-5px);
+        }
+        }
+        @media (max-width: 799px){
+            *{
+                font-family: 'poppins', sans-serif;
+            }
+            .navbar{
+                display: flex;
+                position: fixed;
+                top: 0px;
+                left: 0;
+                align-items: center;
+                width: 100%;
+                height: 85px;
+                background: linear-gradient(125deg, #1900ff, #90c3f1);
+                box-shadow: 0 0 200px #110d0d;
+                z-index: 100;
+            }
+    
+            .navbar nav{
+                width: 100%;
+                background: linear-gradient(125deg, #1900ff, #90c3f1);
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+            }
+            
+            .navbar nav input{
+                max-height: 30px;
+                margin-left: 30px;
+                padding: 5px 10px;
+                border-radius: 20px;
+            }
+            .navbar nav ul {
+        list-style-type:none;
+        display: flex;
+        gap:10px;
+    }
+    .navbar nav ul li{
+        font-size: 22px;
+        font-weight: 400;
+        transition: color 0.5s ease,0.5s;
+        cursor: pointer;
+    }
+
+            .navbar nav ul .menu{
+                background-color: black;
+                margin-right: 30px;
+                cursor: pointer;
+            }
+            .navbar nav ul .hideonmob{
+                display: none;
+            }
+
+            
+            .sidebar{
+                position: fixed;
+                top: 0;
+                right: 0;
+                padding: 40px;
+                display: none;
+                backdrop-filter: blur(10px);
+                width: 250px;
+                height: 100vh;
+                background-color: rgba(128, 128, 128, 0.114);
+                z-index: 999;
+            }
+
+            .quernav{ 
+                padding-left: 30px;
+                float: right;
+                display: flex;
+                align-items: flex-start;
+                flex-direction: column;
+                gap: 30px;
+                
+            }
+            .sidebar .quernav li{
+                list-style: none;
+            }
+
+            .sidebar .quernav li a{
+                text-decoration: none;
+                color: rgb(0, 0, 0);
+                font-size: 26px;
+                font-weight: 700;
+            }
+            .navbar nav ul .menu{
+                background-color: black;
+                margin-right: 30px;
+                cursor: pointer;
+            }
+            .navbar nav ul .hideonmob{
+                display: none;
+            }
+            .images p, .images div, .images h3, .images button{
+                animation: appear linear;
+                animation-timeline: view();
+                animation-range: entry 0 cover 30%;
+            }
+            .container #toptxt {
+                margin-top: 80px;
+                    color: black;
+                    font-size: 32px;
+                    font-weight: 600;
+                    font-family: "Poppins", sans-serif;
+                    padding-top: 40px;
+                    text-align: center;
+                }
+                .cart {
+                    display: flex;
+                    flex-wrap: wrap;
+                    gap: 50px;
+                    margin-top: 100px;
+                    background-color: white;
+                    justify-content: center;
+                }
+
+                .cart img {
+                    padding: 10px;
+                    width: 200px;
+                    height: 200px;
+                    border: 2px solid rgb(241, 234, 234);
+                }
+
+                .images {
+                    padding: 25px;
+                    text-align: center;
+                    box-shadow: 0 0 10px rgb(251, 250, 250);
+                    height: auto;
+                    background: rgb(255, 255, 255);
+                    border: 10px solid rgb(255, 253, 253);
+                    box-shadow: 0 0 3px rgb(0, 0, 0);
+                    border-radius: 2%;
+                    width: 250px;
+                }
+
+                .Products {
+                    transition: 0.4s;
+                    border-radius: 5%;
+                    object-fit: fill;
+                    object-position: cover;
+                }
+
+                .Products:hover {
+                    transform: scale(1.1);
+                }
+                .btn {
+            background-color: #1900ff;
+            color: white;
+            border: 0;
+            border-radius: 10px;
+            padding: 15px;
+            cursor: pointer;
+            font-size: large;
+            font-family: "Poppins", sans-serif;
+            transition: background-color 0.6s ease, transform 0.6s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.2);
+            transform: scaleX(0);
+            transform-origin: bottom right;
+            transition: transform 0.6s ease;
+            z-index: 0;
+        }
+
+        .btn:hover::before {
+            transform: scaleX(1);
+            transform-origin: bottom left;
+        }
+
+        .btn span {
+            position: relative;
+            z-index: 1;
+        }
+
+        .btn:hover {
+            background-color: #201d1d;
+            color: aliceblue;
+            transform: translateY(-5px);
+        }
+
+        .added {
+            background-color: #db1e2b;
+            color: white;
+            border: 0;
+            border-radius: 10px;
+            padding: 15px;
+            cursor: pointer;
+            font-size: large;
+            font-family: "Poppins", sans-serif;
+            transition: background-color 0.6s ease, transform 0.6s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .added::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.2);
+            transform: scaleX(0);
+            transform-origin: bottom right;
+            transition: transform 0.6s ease;
+            z-index: 0;
+        }
+
+        .added:hover::before {
+            transform: scaleX(1);
+            transform-origin: bottom left;
+        }
+
+        .added:hover {
+            background-color: #da3b06;
+            color: aliceblue;
+            transform: translateY(-5px);
+        }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="navbar">
+            <nav>
+                <input type="text" class="inp" placeholder="Search Items">
+                <ul>
+                    <li class="hideonmob"><a href="ecommerce.html">Home</a></li>
+                    <li onclick=logout() class="hideonmob"><a href="#" id="logout">Log Out</a></li>
+                    <li class="hideonmob"><a>Products</a></li>
+                    <li class="hideonmob"><a href="ecommerce-login.html" id="login">Sign In</a></li>
+                    <li class="hideonmob"><a href="ecommerce-cart.html">Cart <i class="fa-solid fa-cart-shopping" id="cart"></i></a></li>
+                    <li onclick=side() id="bar"><a href="#"><svg class="menu" xmlns="http://www.w3.org/2000/svg" height="29px" viewBox="0 -960 960 960" width="29px" fill="#e8eaed"><path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/></svg></a></li>
+                </ul>
+            </nav>
+            <div class="sidebar">
+                <ul class="quernav">
+                    <li onclick=hide() ><a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="29px" viewBox="0 -960 960 960" width="29px" fill="#e8eaed"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg></a></li>
+                    <li ><a href="ecommerce.html">Home</a></li>
+                    <li onclick=logout() ><a href="#" id="logout1">Log Out</a></li>
+                    <li ><a>Products</a></li>
+                    <li ><a href="ecommerce-login.html" id="login1">Sign In</a></li>
+                    <li ><a href="ecommerce-cart.html">Cart <i class="fa-solid fa-cart-shopping" id="cart"></i></a></li>
+                    </ul>
+            </div>
+        </div>
+        <h1 id="toptxt">Our Products</h1>
+        <div class="cart">
+            <div class="images">
+                <img class="Products" src="images/book-img.webp">
+                <p>Canon-3245</p>
+                <div>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                </div>
+                <h3>&#8377 5,040</h3>
+                <button class="btn" data-name="Canon-3245" data-price="5040" data-id="1"
+                    data-image="images/book-img.webp">Add to cart</button>
+            </div>
+            <div class="images">
+                <img class="Products" src="images/adidas-shoes.webp">
+                <p>Adidas-shoes</p>
+                <div>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                </div>
+                <h3>&#8377 2,500</h3>
+                <button class="btn" data-name="Adidas-shoes" data-price="2,500" data-id="13"
+                    data-image="images/adidas-shoes.webp">Add to
+                    cart</button>
+            </div>
+            <div class="images">
+                <img class="Products" src="images/book2-img.webp">
+                <p>tata-Coffee</p>
+                <div>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                </div>
+                <h3>&#8377 280</h3>
+                <button class="btn" data-name="tata-Coffee" data-price="280" data-id="2"
+                    data-image="images/book2-img.webp">Add to cart</button>
+            </div>
+            <div class="images">
+                <img class="Products" src="images/graphics-card.webp">
+                <p>G-Force Rtx-4050 Graphics Card</p>
+                <div>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                </div>
+                <h3>&#8377 72,350</h3>
+                <button class="btn" data-name="G-Force Rtx-4050 Graphics Card" data-price="72,350" data-id="14"
+                    data-image="images/graphics-card.webp">Add to
+                    cart</button>
+            </div>
+            <div class="images">
+                <img class="Products" src="images/earbuds-img.png">
+                <p>Oneplus-Airpods</p>
+                <div>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                </div>
+                <h3>&#8377 800</h3>
+                <button class="btn" data-name="Oneplus-Airpods" data-id="3" data-price="800"
+                    data-image="images/earbuds-img.png">Add to
+                    cart</button>
+            </div>
+            <div class="images">
+                <img class="Products" src="images/sticky-notes.webp">
+                <p>Sticky-notes</p>
+                <div>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                </div>
+                <h3>&#8377 599</h3>
+                <button class="btn" data-name="Sticky-notes" data-id="15" data-price="599"
+                    data-image="images/Sticky-notes.webp">Add to
+                    cart</button>
+            </div>
+            <div class="images">
+                <img class="Products" src="images/handbag-img.webp">
+                <p>Louis Vuitton-Bag</p>
+                <div>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                </div>
+                <h3>&#8377 12,280,456</h3>
+                <button class="btn" data-name="Louis Vuitton-Bag" data-id="4" data-price="12,280,456"
+                    data-image="images/handbag-img.webp">Add to
+                    cart</button>
+            </div>
+            <div class="images">
+                <img class="Products" src="images/gaming-system.webp">
+                <p>Gaming-system</p>
+                <div>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                </div>
+                <h3>&#8377 1,200</h3>
+                <button class="btn" data-name="Gaming-system" data-id="16" data-price="1,200"
+                    data-image="images/gaming-system.webp">Add to
+                    cart</button>
+            </div>
+            <div class="images">
+                <img class="Products" src="images/icecream-img.webp">
+                <p>Ice Cream</p>
+                <div>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                </div>
+                <h3>&#8377 340</h3>
+                <button class="btn" data-name="Ice Cream" data-id="5" data-price="340"
+                    data-image="images/icecream-img.webp">Add to
+                    cart</button>
+            </div>
+            <div class="images">
+                <img class="Products" src="images/unibic.webp">
+                <p>Unibic-Biscuits</p>
+                <div>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                </div>
+                <h3>&#8377 210</h3>
+                <button class="btn" data-name="Unibic-Biscuits" data-id="17" data-price="210"
+                    data-image="images/unibic.webp">Add to cart</button>
+            </div>
+            <div class="images">
+                <img class="Products" src="images/nike-img.webp">
+                <p>Nike-Shoe</p>
+                <div>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                </div>
+                <h3>&#8377 2,018</h3>
+                <button class="btn" data-name="Nike-Shoe" data-id="6" data-price="340"
+                    data-image="images/nike-img.webp">Add to cart</button>
+            </div>
+            <div class="images">
+                <img class="Products" src="images/feastables.webp">
+                <p>Mrbeast-Feastables</p>
+                <div>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                </div>
+                <h3>&#8377 499</h3>
+                <button class="btn" data-name="Mrbeast-Feastables" data-id="18" data-price="499"
+                    data-image="images/feastables.webp">Add to
+                    cart</button>
+            </div>
+            <div class="images">
+                <img class="Products" src="images/suitcase-img.webp">
+                <p>Tata-Tea</p>
+                <div>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                </div>
+                <h3>&#8377 450</h3>
+                <button class="btn" data-name="Tata-Tea" data-id="7" data-price="450"
+                    data-image="images/suitcase-img.webp">Add to
+                    cart</button>
+            </div>
+            <div class="images">
+                <img class="Products" src="images/motorola.webp">
+                <p>Motorola-125</p>
+                <div>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                </div>
+                <h3>&#8377 13,450</h3>
+                <button class="btn" data-name="Motorola-125" data-id="19" data-price="13,450"
+                    data-image="images/motorola.webp">Add to
+                    cart</button>
+            </div>
+            <div class="images">
+                <img class="Products" src="images/iphone-img.jpeg">
+                <p>Iphone 15 Pro Max</p>
+                <div>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                </div>
+                <h3>&#8377 1,45,087</h3>
+                <button class="btn" data-name="Iphone 15 Pro Max" data-id="8" data-price="1,45,087"
+                    data-image="images/iphone-img.jpeg">Add to
+                    cart</button>
+            </div>
+            <div class="images">
+                <img class="Products" src="images/oreo-chocolate.webp">
+                <p>Oreo</p>
+                <div>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                </div>
+                <h3>&#8377 350</h3>
+                <button class="btn" data-name="Oreo" data-id="20" data-price="350"
+                    data-image="images/oreo-chocolate.webp">Add to
+                    cart</button>
+            </div>
+            <div class="images">
+                <img class="Products" src="images/messi-png.webp">
+                <p>Jersey</p>
+                <div>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                </div>
+                <h3>&#8377 670</h3>
+                <button class="btn" data-name="Jersey" data-id="9" data-price="670"
+                    data-image="images/messi-png.webp">Add to cart</button>
+            </div>
+            <div class="images">
+                <img class="Products" src="images/mrbeast-tshirt.webp">
+                <p>Mrbeast-Tshirt</p>
+                <div>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                </div>
+                <h3>&#8377 1,999</h3>
+                <button class="btn" data-name="Mrbeast-Tshirt" data-id="21" data-price="1,999"
+                    data-image="images/mrbeast-tshirt.webp">Add to
+                    cart</button>
+            </div>
+            <div class="images">
+                <img class="Products" src="images/lap-img.webp">
+                <p>Asus-TUF Gaming Laptop</p>
+                <div>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                </div>
+                <h3>&#8377 58,050</h3>
+                <button class="btn" data-name="Asus-TUF Gaming Laptop" data-id="10" data-price="58,050"
+                    data-image="images/lap-img.webp">Add to
+                    cart</button>
+            </div>
+            <div class="images">
+                <img class="Products" src="images/ps5-img.webp">
+                <p>Ps5 Console</p>
+                <div>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                </div>
+                <h3>&#8377 30,450</h3>
+                <button class="btn" data-name="Ps5 Console" data-id="22" data-price="30,450"
+                    data-image="images/ps5-img.webp">Add to
+                    cart</button>
+            </div>
+            <div class="images">
+                <img class="Products" src="images/football-img.webp">
+                <p>Football</p>
+                <div>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                </div>
+                <h3>&#8377 1,060</h3>
+                <button class="btn" data-name="Football" data-id="11" data-price="1,060"
+                    data-image="images/football-img.webp">Add to
+                    cart</button>
+            </div>
+            <div class="images">
+                <img class="Products" src="images/skirt-dupata.webp">
+                <p>Kurta With Dupata</p>
+                <div>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                </div>
+                <h3>&#8377 799</h3>
+                <button class="btn" data-name="Kurta With Dupata" data-id="23" data-price="799"
+                    data-image="images/skirt-dupata.webp">Add to
+                    cart</button>
+            </div>
+            <div class="images">
+                <img class="Products" src="images/alexa-img.webp">
+                <p>Alexa</p>
+                <div>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star-half"></i>
+                </div>
+                <h3>&#8377 2,350</h3>
+                <button class="btn" data-name="Alexa" data-id="12" data-price="2,350"
+                    data-image="images/alexa-img.webp">Add to
+                    cart</button>
+            </div>
+            <div class="images">
+                <img class="Products" src="images/redmi-tablet.webp">
+                <p>Redmi-tablet</p>
+                <div>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star-half"></i>
+                </div>
+                <h3>&#8377 12,950</h3>
+                <button class="btn" data-name="Redmi-tablet" data-id="24" data-price="12,950"
+                    data-image="images/redmi-tablet.webp">Add to
+                    cart</button>
+            </div>
+            <div class="images">
+                <img class="Products" src="images/travel-bag.webp">
+                <p>Travel-bag</p>
+                <div>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star-half"></i>
+                </div>
+                <h3>&#8377 350</h3>
+                <button class="btn" data-name="Travel-bag" data-id="25" data-price="350"
+                    data-image="images/travel-bag.webp">Add to
+                    cart</button>
+            </div>
+            <div class="images">
+                <img class="Products" src="images/lego.webp">
+                <p>Lego-Car</p>
+                <div>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star-half"></i>
+                </div>
+                <h3>&#8377 1,299</h3>
+                <button class="btn" data-name="Lego-Car" data-id="26" data-price="1,299"
+                    data-image="images/lego.webp">Add to cart</button>
+            </div>
+            <div class="images">
+                <img class="Products" src="images/smart-watch.webp">
+                <p>Smart-Watch</p>
+                <div>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star-half"></i>
+                </div>
+                <h3>&#8377 3,299</h3>
+                <button class="btn" data-name="Smart-Watch" data-id="27" data-price="3,299"
+                    data-image="images/smart-watch.webp">Add to
+                    cart</button>
+            </div>
+            <div class="images">
+                <img class="Products" src="images/wood-bed.webp">
+                <p>Wood-Bed</p>
+                <div>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star-half"></i>
+                </div>
+                <h3>&#8377 15,799</h3>
+                <button class="btn" data-name="Wood-Bed" data-id="28" data-price="15,799"
+                    data-image="images/wood-bed.webp">Add to
+                    cart</button>
+            </div>
+            <div class="images">
+                <img class="Products" src="images/preethi-grinder.webp">
+                <p>Preethi-Grinder</p>
+                <div>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star-half"></i>
+                </div>
+                <h3>&#8377 2,459</h3>
+                <button class="btn" data-name="Preethi-Grinder" data-id="29" data-price="2,459"
+                    data-image="images/preethi-grinder.webp">Add to cart</button>
+            </div>
+            <div class="images">
+                <img class="Products" src="images/x-box.webp">
+                <p>X-Box Console</p>
+                <div>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star-half"></i>
+                </div>
+                <h3>&#8377 23,699</h3>
+                <button class="btn" data-name="X-Box Console" data-id="30" data-price="23,699"
+                    data-image="images/x-box.webp">Add to cart</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            document.querySelectorAll('.btn').forEach(button => {
+                button.addEventListener('click', addtocart);
+            })
+            document.getElementById('logout').addEventListener('click', (event) => {
+                logout();
+            })
+            document.querySelectorAll('.btn').forEach(updatebutton);
+            toggleullogin();
+        })
+
+        function side(){
+            const side=document.querySelector('.sidebar');
+            side.style.display='flex';
+            side.style.flexdirection='column';
+        }
+
+        function hide(){
+            const side=document.querySelector('.sidebar');
+            side.style.display='none';
+        }
+        function toggleullogin() {
+            const login = localStorage.getItem('islogged');
+            const log = document.getElementById('login');
+            const querlog=document.getElementById('login1');
+            if (login == 'true') {
+                log.textContent = 'LoggedIn';
+                querlog.textContent='Loggedin';
+            }
+            else {
+                log.textContent = 'Sign In';
+                querlog.textContent='Sign In';
+            }
+        }
+        function logout() {
+            localStorage.removeItem('islogged');
+            toggleullogin();
+            window.location.href = 'ecommerce-login.html';
+        }
+        function addtocart(event) {
+            const button = event.target;
+            const product_id=button.getAttribute("data-id");
+            if (button.textContent == 'Remove') {
+                const cart = JSON.parse(localStorage.getItem('cart')) || [];
+                const u = cart.filter(item => item.id != product_id);
+                localStorage.setItem('cart', JSON.stringify(u));
+                button.textContent='Add to Cart';
+                button.classList.remove('added');
+                button.classList.add('btn');
+                update(button);
+            }
+            else {
+                const product_id = button.getAttribute("data-id");
+                const price = button.getAttribute("data-price");
+                const image = button.getAttribute("data-image");
+                const name = button.getAttribute("data-name");
+                const cart = JSON.parse(localStorage.getItem('cart')) || [];
+                const index = cart.findIndex(item => item.id == product_id);
+                const login = localStorage.getItem('islogged');
+                if (login == 'true') {
+                    if (index > 0) {
+                        cart[index].quantity += 1;
+                    }
+                    else {
+                        cart.push({ id: product_id, price, image, name, quantity: 1 });
+                    }
+                    localStorage.setItem('cart', JSON.stringify(cart));
+                    button.textContent='Remove';
+                    button.classList.add('added');
+                    button.classList.remove('btn');
+                    update();
+                }
+                else {
+                    alert("Please Log In!");
+                }
+                updatebutton(button);
+            }
+        }
+        function updatebutton(button) {
+            const product_id = button.getAttribute("data-id");
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const index = cart.findIndex(item => item.id == product_id);
+            if (index >= 0) {
+                button.textContent = 'Remove';
+                button.classList.add('added');
+                button.classList.remove('btn');
+            }
+            else {
+                button.textContent = 'Add to Cart';
+                button.classList.add('btn');
+                button.classList.remove('added');
+            }
+        }
+    </script>
+</body>
+</html>

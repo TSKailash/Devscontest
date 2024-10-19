@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechInside</title>
+    <link rel="stylesheet" href="ecommerce.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <div class="navbar">
+            <nav>
+                <input type="text" placeholder="search">
+                <ul>
+                    <li class="hideonmob"><a href="ecommerce.html">Home</a></li>
+                    <li onclick=logout() class="hideonmob"><a href="#" id="logout">Log Out</a></li>
+                    <li class="hideonmob"><a href="ecommerce-products.html">Products</a></li>
+                    <li class="hideonmob"><a href="ecommerce-login.html" id="login">Sign In</a></li>
+                    <li class="hideonmob"><a href="ecommerce-cart.html">Cart <i class="fa-solid fa-cart-shopping" id="cart"></i></a></li>
+                    <li onclick=side() id="bar"><a href="#"><svg class="menu" xmlns="http://www.w3.org/2000/svg" height="29px" viewBox="0 -960 960 960" width="29px" fill="#e8eaed"><path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/></svg></a></li>
+                </ul>
+                
+            </nav>
+            <div class="sidebar">
+                <ul class="quernav">
+                    <li onclick=hide()><a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="29px" viewBox="0 -960 960 960" width="29px" fill="#e8eaed"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg></a></li>
+                    <li><a href="ecommerce.html">Home</a></li>
+                    <li onclick=logout()><a href="#" id="logout1">Log Out</a></li>
+                    <li><a href="ecommerce-products.html">Products</a></li>
+                    <li><a href="ecommerce-login.html" id="login1" >Sign In</a></li>
+                    <li><a href="ecommerce-cart.html">Cart <i class="fa-solid fa-cart-shopping" id="cart"></i></a></li>
+                </ul>
+            </div>
+            
+        </div>
+        <div class="page" id="home">
+            <div class="words">
+                <h1>
+                    Shop the Latest Gadgets and Transform Your Experience – Limited Time Only!
+                </h1>
+                <button onclick="pro()">Explore Now </button>
+            </div>
+            <img src="images/image-3.png">
+        </div>
+        <div id="home2" class="page">
+            <img src="images/image-4.png">
+            <div class="words">
+                <h1>
+                    Elevate your living space with our stunning selection of modern and timeless furniture.
+                </h1>
+                <button onclick="pro()">Explore Now </button>
+            </div>
+        </div>
+        <div class="carts">
+            <div class="images">
+                <img class="Products" src="images/book-img.webp">
+                <p>Canon-3245</p>
+                <div>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                </div>
+                <h3>&#8377 5040</h3>
+                <button class="btn" data-name="canon-3245" data-price="5040" data-id="1" data-image="images/book-img.webp">Add to cart</button>
+            </div>
+            <div class="images">
+                <img class="Products" src="images/book2-img.webp">
+                <p>Tata Coffee</p>
+                <div>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                </div>
+                <h3>&#8377 280</h3>
+                <button class="btn" data-name="Tata Coffee" data-price="280" data-id="2" data-image="images/book2-img.webp">Add to cart</button>
+            </div>
+            <div class="images">
+                <img class="Products" src="images/earbuds-img.png">
+                <p>Oneplus-Airpods</p>
+                <div>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                </div>
+                <h3>&#8377 800</h3>
+                <button class="btn" data-name="Oneplus-Airpods" data-id="3" data-price="800" data-image="images/earbuds-img.png">Add to
+                    cart</button>
+            </div>
+            <div class="images">
+                <img class="Products" src="images/handbag-img.webp">
+                <p>Louis Vuitton-Bag</p>
+                <div>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                </div>
+                <h3>&#8377 12,280,456</h3>
+                <button class="btn" data-name="Louis Vuitton-Bag" data-id="4" data-price="12,280,456"
+                    data-image="images/handbag-img.webp">Add to cart</button>
+            </div>
+            <div class="images">
+                <img class="Products" src="images/icecream-img.webp">
+                <p>Ice Cream</p>
+                <div>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                </div>
+                <h3>&#8377 340</h3>
+                <button class="btn" data-name="Ice Cream" data-id="5" data-price="340"
+                    data-image="images/icecream-img.webp">Add to cart</button>
+            </div>
+            <div class="images">
+                <img class="Products" src="images/nike-img.webp">
+                <p>Nike-Shoe</p>
+                <div>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                </div>
+                <h3>&#8377 2,018</h3>
+                <button class="btn" data-name="Nike-Shoe" data-id="6" data-price="340"
+                    data-image="images/nike-img.webp">Add to cart</button>
+            </div>
+            <div class="images">
+                <img class="Products" src="images/suitcase-img.webp">
+                <p>Tata-Tea</p>
+                <div>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                </div>
+                <h3>&#8377 450</h3>
+                <button class="btn" data-name="Tata-Tea" data-id="7" data-price="450"
+                    data-image="images/suitcase-img.webp">Add to cart</button>
+            </div>
+            <div class="images">
+                <img class="Products" src="images/iphone-img.jpeg">
+                <p>Iphone 15 Pro Max</p>
+                <div>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                </div>
+                <h3>&#8377 1,45,087</h3>
+                <button class="btn" data-name="Iphone 15 Pro Max" data-id="8" data-price="1,45,087"
+                    data-image="images/iphone-img.jpeg">Add to cart</button>
+            </div>
+            <div class="images">
+                <img class="Products" src="images/messi-png.webp">
+                <p>Jersey</p>
+                <div>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                </div>
+                <h3>&#8377 670</h3>
+                <button class="btn" data-name="Jersey" data-id="9" data-price="670"
+                    data-image="images/messi-png.webp">Add to cart</button>
+            </div>
+            <div class="images">
+                <img class="Products" src="images/lap-img.webp">
+                <p>Asus-TUF Gaming Laptop</p>
+                <div>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                </div>
+                <h3>&#8377 58,050</h3>
+                <button class="btn" data-name="Asus-TUF Gaming Laptop" data-id="10" data-price="58,050"
+                    data-image="images/lap-img.webp">Add to cart</button>
+            </div>
+            <div class="images">
+                <img class="Products" src="images/football-img.webp">
+                <p>Football</p>
+                <div>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                </div>
+                <h3>&#8377 1,060</h3>
+                <button class="btn" data-name="Football" data-id="11" data-price="1,060"
+                    data-image="images/football-img.webp">Add to cart</button>
+            </div>
+            <div class="images">
+                <img class="Products" src="images/alexa-img.webp">
+                <p>Alexa</p>
+                <div>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star-half"></i>
+                </div>
+                <h3>&#8377 2,350</h3>
+                <button class="btn" data-name="Alexa" data-id="12" data-price="2,350"
+                    data-image="images/alexa-img.webp">Add to cart</button>
+            </div>
+        </div>
+        <div class="about" id="about">
+            <div class="side1" id="sider">
+                <div class="play">
+                    <i class="fa-solid fa-play"></i>
+                    <div class="txt">Techinside</div>
+                </div>
+                <div class="gmail" id="sider">
+                    <i class="fa-solid fa-envelope"></i>
+                    <div class="txt">techinside@gmail.com</div>
+                </div>
+                <div class="web" id="sider">
+                    <i class="fa-solid fa-globe"></i>
+                    <div class="txt">www.techinside.com</div>
+                </div>
+            </div>
+            <div class="nav">
+                <ul>
+                    <li><a href="ecommerce.html">Home</a></li>
+                    <li><a href="#" >Log Out</a></li>
+                    <li><a href="ecommerce-products.html">Products</a></li>
+                    <li><a href="ecommerce-login.html" >Sign In</a></li>
+                    <li><a href="ecommerce-cart.html">Cart <i class="fa-solid fa-cart-shopping" id="cart"></i></a></li>
+                </ul>
+            </div>
+            <div class="side1" id="sider">
+                <div class="play">
+                    <i class="fa-solid fa-phone"></i>
+                    <div class="txt">8610228709</div>
+                </div>
+                <div class="gmail" id="sider">
+                    <i class="fa-brands fa-instagram"></i>
+                    <div class="txt">techinsideshop_100</div>
+                </div>
+                <div class="web" id="sider">
+                    <i class="fa-brands fa-twitter"></i>
+                    <div class="txt">techinsideshop_100</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            document.querySelectorAll('.btn').forEach(button => {
+                button.addEventListener('click', addtocart);
+            })
+            document.querySelectorAll('.btn').forEach(updatebutton);
+            toggleullogin();
+        })
+        function side(){
+            const side=document.querySelector('.sidebar');
+            side.style.display='flex';
+            side.style.flexdirection='column';
+        }
+        function hide(){
+            const side=document.querySelector('.sidebar');
+            side.style.display='none';
+        }
+        function toggleullogin(){
+            const login = localStorage.getItem('islogged');
+            const log = document.getElementById('login');
+            const querlog=document.getElementById('login1');
+            if (login == 'true') {
+                log.textContent = 'LoggedIn';
+                querlog.textContent='Loggedin';
+            }
+            else {
+                log.textContent = 'Sign In';
+                querlog.textContent='Sign In';
+            }
+        }
+        function logout() {
+            localStorage.removeItem('islogged');
+            toggleullogin();
+            window.location.href = 'ecommerce-login.html';
+        }
+        function pro(){
+            window.location.href='ecommerce-products.html';
+        }
+        function addtocart(event) {
+            const button = event.target;
+            const product_id=button.getAttribute("data-id");
+            if (button.textContent == 'Remove') {
+                const cart = JSON.parse(localStorage.getItem('cart')) || [];
+                const u = cart.filter(item => item.id != product_id);
+                localStorage.setItem('cart', JSON.stringify(u));
+                button.textContent='Add to Cart';
+                button.classList.remove('added');
+                button.classList.add('btn');
+                update(button);
+            }
+            else {
+                const product_id = button.getAttribute("data-id");
+                const price = button.getAttribute("data-price");
+                const image = button.getAttribute("data-image");
+                const name = button.getAttribute("data-name");
+                const cart = JSON.parse(localStorage.getItem('cart')) || [];
+                const index = cart.findIndex(item => item.id == product_id);
+                const login = localStorage.getItem('islogged');
+                if (login == 'true') {
+                    if (index > 0) {
+                        cart[index].quantity += 1;
+                    }
+                    else {
+                        cart.push({ id: product_id, price, image, name, quantity: 1 });
+                    }
+                    localStorage.setItem('cart', JSON.stringify(cart));
+                    button.textContent='Remove';
+                    button.classList.add('added');
+                    button.classList.remove('btn');
+                    update();
+                }
+                else {
+                    alert("Please Log In!");
+                }
+                updatebutton(button);
+            }
+        }
+        function updatebutton(button) {
+            const product_id = button.getAttribute("data-id");
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const index = cart.findIndex(item => item.id == product_id);
+            if (index >= 0){
+                button.textContent = 'Remove';
+                button.classList.add('added');
+                button.classList.remove('btn');
+            }
+            else {
+                button.textContent = 'Add to Cart';
+                button.classList.add('btn');
+                button.classList.remove('added');
+            }
+        }
+    </script>
+</body>
+</html>
